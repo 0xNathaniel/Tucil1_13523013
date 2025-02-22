@@ -43,7 +43,7 @@ public class Board {
         for (int i = 0; i < pieceRow; i++) {
             for (int j = 0; j < pieceCol; j++) {
                 // Tidak keluar dari Board atau 
-                if ((row + i > rows) || (col + j > cols)) {
+                if ((row + i >= rows) || (col + j >= cols)) {
                     return false;
                 }
                 // Tidak menimpa piece lain
@@ -92,7 +92,7 @@ public class Board {
     // Method untuk mengecek apakah Board sudah penuh atau belum
     public boolean isFull() {
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; i < cols; j++) {
+            for (int j = 0; j < cols; j++) {
                 if (grid[i][j] == '.') {
                     return false;
                 }
