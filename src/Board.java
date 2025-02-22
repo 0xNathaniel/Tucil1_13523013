@@ -29,4 +29,42 @@ public class Board {
     public char[][] getGrid() {
         return grid;
     }
+
+    
+
+    /* Method untuk memeriksa constraint penyimpanan Piece pada Board:
+        1. Tidak menimpa piece lain
+        2. Tidak keluar dari Board atau IndexOutOfBounds */ 
+    public boolean canPlacePiece(Piece piece, int row, int col) {
+
+        return true;
+    }
+    
+    // Method untuk menyimpan Piece pada Board
+    public void placePiece(Piece piece, int row, int col) {
+
+    }
+
+    // Method untuk menghapus Piece pada Board
+    public void removePiece(Piece piece, int row, int col) {
+
+    }
+
+    // Method untuk mengecek apakah Board sudah penuh atau belum
+    public boolean isFull() {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; i < cols; j++) {
+                if (grid[i][j] == '.') {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    // Method untuk print Board ke terminal dengan warna
+    public void printBoard() {
+        
+    }
+
 }
