@@ -68,7 +68,7 @@ public class Piece {
 
         for (int i = 0; i < shapeRow; i++) {
             for (int j = 0; j < shapeCol; j++) {
-                mirroredShape[i][shapeCol - j - 1] = currentShape[i][j];
+                mirroredShape[i][j] = currentShape[i][shapeCol - j - 1];
             }
         }
         return mirroredShape;
