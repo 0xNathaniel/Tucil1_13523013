@@ -36,14 +36,12 @@ public class Board {
     public boolean canPlacePiece(Piece piece, int row, int col) {
         // Dimensi Piece
         char[][] pieceShape = piece.getShape();
-        int pieceRow = pieceShape.length;
-        int pieceCol = pieceShape[0].length;
 
         // Pengecekan
-        for (int i = 0; i < pieceRow; i++) {
-            for (int j = 0; j < pieceCol; j++) {
+        for (int i = 0; i < pieceShape.length; i++) {
+            for (int j = 0; j < pieceShape[i].length; j++) {
                 // Tidak keluar dari Board atau 
-                if ((row + i >= rows) || (col + j >= cols)) {
+                if ((row + i < 0) || (col + j < 0) || (row + i >= rows) || (col + j >= cols)) {
                     return false;
                 }
                 // Tidak menimpa piece lain
@@ -59,12 +57,10 @@ public class Board {
     public void placePiece(Piece piece, int row, int col) {
         // Dimensi Piece
         char[][] pieceShape = piece.getShape();
-        int pieceRow = pieceShape.length;
-        int pieceCol = pieceShape[0].length;
 
         // Menempatkan piece
-        for (int i = 0; i < pieceRow; i++) {
-            for (int j = 0; j < pieceCol; j++) {
+        for (int i = 0; i < pieceShape.length; i++) {
+            for (int j = 0; j < pieceShape[i].length; j++) {
                 if (pieceShape[i][j] != '.') {
                     grid[row + i][col + j] = pieceShape[i][j];
                 }
@@ -76,14 +72,14 @@ public class Board {
     public void removePiece(Piece piece, int row, int col) {
         // Dimensi Piece
         char[][] pieceShape = piece.getShape();
-        int pieceRow = pieceShape.length;
-        int pieceCol = pieceShape[0].length;
 
         // Menghapus piece
-        for (int i = 0; i < pieceRow; i++) {
-            for (int j = 0; j < pieceCol; j++) {
+        for (int i = 0; i < pieceShape.length; i++) {
+            for (int j = 0; j < pieceShape[i].length; j++) {
                 if (pieceShape[i][j] != '.') {
-                    grid[row + i][col + j] = '.';
+                    if (grid[row + i][col + j] == pieceShape[i][j]) {
+                        grid[row + i][col + j] = '.';    
+                    }
                 }
             }
         }
