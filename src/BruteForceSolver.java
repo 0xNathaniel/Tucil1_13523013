@@ -14,10 +14,6 @@ public class BruteForceSolver {
     }
 
     // Getter: iterationCount
-    public Board getBoard() {
-        return board;
-    }
-
     public int getIterationCount() {
         return iterCount;
     }
@@ -26,7 +22,13 @@ public class BruteForceSolver {
     
     // Method bantuan untuk memulai backtacking
     public void solve() {
-        backtrack(0);
+        boolean isSolved = backtrack(0);
+        // Output hasil berdasarkan status solving
+        if (isSolved) {
+            board.printBoard();
+            return;
+        }
+        System.out.println("Puzzle tidak memiliki solusi!");
     }
 
     // Method proses backtracking: mengembalikan true bila terdapat solusi
