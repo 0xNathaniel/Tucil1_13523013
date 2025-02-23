@@ -40,17 +40,17 @@ public class BruteForceSolver {
         // Brute force seluruh kemungkinan transformasi Piece dan posisi pada Board 
         Piece piece = listOfPieces.get(idx);
         for (Piece transformedPiece : piece.getRotationsAndMirrors()) {;
-            for (int r = 0; r < board.getRows(); r++) {
-                for (int c = 0; c < board.getCols(); c++) {
+            for (int row = 0; row < board.getRows(); row++) {
+                for (int col = 0; col < board.getCols(); col++) {
                     // Pengecekan penempatan piece selaku aturan IQ Puzzler Pro
-                    if (board.canPlacePiece(transformedPiece, r, c)) {
-                        board.placePiece(transformedPiece, r, c);
+                    if (board.canPlacePiece(transformedPiece, row, col)) {
+                        board.placePiece(transformedPiece, row, col);
                         // Melanjutkan proses searching (berhenti bila sudah menemukan solusi)
                         if (backtrack(idx + 1)) {
                             return true;
                         }
                         // Rollback: kembali pada level state-tree sebelumnya
-                        board.removePiece(transformedPiece, r, c);
+                        board.removePiece(transformedPiece, row, col);
                     }
                 }
             }
