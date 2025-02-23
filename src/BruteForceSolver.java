@@ -13,11 +13,15 @@ public class BruteForceSolver {
         this.listOfPieces = listOfPieces;
     }
 
-    // Getter: iterationCount
+    // Getter: iterationCount dan board
     public int getIterationCount() {
         return iterCount;
     }
-    
+
+    public Board getBoard() {
+        return board;
+    }
+
     // Puzzle solver brute force: backtracking 
     
     // Method bantuan untuk memulai backtacking
