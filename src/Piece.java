@@ -25,19 +25,19 @@ public class Piece {
      seluruh kemungkinan konfigurasi perlu dicoba dalam algoritma BruteForce */
 
     // Getter: mendapatkan list berisi seluruh kemungkinan konfigurasi piece (yang telah dirotasi dan dicerminkan)
-    public List<char[][]> getRotationsAndMirrors() {
+    public List<Piece> getRotationsAndMirrors() {
         // Pembuatan list shape hasil seluruh konfigurasi rotasi dan mirror
-        List<char[][]> rotatedAndMirroredShapes = new ArrayList<>();
+        List<Piece> transformedShapes = new ArrayList<>();
 
         // Proses loading seluruh konfigurasi rotasi dan pencerminan
         char[][] currentShape = shape;
 
         for (int i = 0; i < 4; i++) {
             currentShape = rotate(currentShape);
-            rotatedAndMirroredShapes.add(currentShape);
-            rotatedAndMirroredShapes.add(mirror(currentShape));
+            transformedShapes.add(new Piece(label, currentShape)); 
+            transformedShapes.add(new Piece(label, mirror(currentShape)));
         }
-        return rotatedAndMirroredShapes;
+        return transformedShapes;
     }
 
     // Method untuk merotasi Piece
