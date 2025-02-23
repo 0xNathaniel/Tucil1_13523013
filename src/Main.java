@@ -26,21 +26,23 @@ public class Main {
         System.out.println("Banyak kasus yang ditinjau: " + solver.getIterationCount());
         System.out.println();
 
-        // Output file .txt
-        System.out.print("Apakah anda ingin menyimpan solusi (.txt)? (ya/tidak): ");
-        String outputFile = scanner.nextLine().trim();
+        // Output file .txt dan gambar bila terdapat solusi
+        if (solver.getBoard().isFull()){
+            // Output file .txt
+            System.out.print("Apakah anda ingin menyimpan solusi (.txt)? (ya/tidak): ");
+            String outputFile = scanner.nextLine().trim();
 
-        if (outputFile.equalsIgnoreCase("ya")) {
-            System.out.println("Test");
-            FileIO.saveSolutionToFile(filename);
-        }
+            if (outputFile.equalsIgnoreCase("ya")) {
+                FileIO.saveSolutionToFile(filename);
+            }
 
-        // Output file gambar
-        System.out.print("Apakah anda ingin menyimpan solusi (.png)? (ya/tidak): ");
-        String outputImage = scanner.nextLine().trim();
+            // Output file gambar
+            System.out.print("Apakah anda ingin menyimpan solusi (.png)? (ya/tidak): ");
+            String outputImage = scanner.nextLine().trim();
 
-        if (outputImage.equalsIgnoreCase("ya")) {
-            FileIO.saveSolutionAsImage(filename);
+            if (outputImage.equalsIgnoreCase("ya")) {
+                FileIO.saveSolutionAsImage(filename);
+            }
         }
 
         scanner.close();
