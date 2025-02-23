@@ -25,6 +25,7 @@ public class BruteForceSolver {
         backtrack(0);
     }
 
+    // Method proses backtracking: mengembalikan true bila terdapat solusi
     private boolean backtrack(int idx) {
         // Menambah hitungan iterasi
         iterCount++;
@@ -39,22 +40,22 @@ public class BruteForceSolver {
 
         // Brute force seluruh kemungkinan transformasi Piece dan posisi pada Board 
         Piece piece = listOfPieces.get(idx);
-        List<Piece> transformedPieces = piece.getRotationsAndMirrors();
+        List<Piece> rotatedAndMirroredPieces = piece.getRotationsAndMirrors();
 
         for (int i = 0; i < 8; i++) {
-            Piece transformedPiece = transformedPieces.get(i);
+            Piece currentPiece = rotatedAndMirroredPieces.get(i);
 
             for (int row = 0; row < board.getRows(); row++) {
                 for (int col = 0; col < board.getCols(); col++) {
                     // Pengecekan penempatan piece selaku aturan IQ Puzzler Pro
-                    if (board.canPlacePiece(transformedPiece, row, col)) {
-                        board.placePiece(transformedPiece, row, col);
+                    if (board.canPlacePiece(currentPiece, row, col)) {
+                        board.placePiece(currentPiece, row, col);
                         // Melanjutkan proses searching (berhenti bila sudah menemukan solusi)
                         if (backtrack(idx + 1)) {
                             return true;
                         }
                         // Rollback: kembali pada level state-tree sebelumnya
-                        board.removePiece(transformedPiece, row, col);
+                        board.removePiece(currentPiece, row, col);
                     }
                 }
             }
