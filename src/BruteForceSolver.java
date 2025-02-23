@@ -14,6 +14,10 @@ public class BruteForceSolver {
     }
 
     // Getter: iterationCount
+    public Board getBoard() {
+        return board;
+    }
+
     public int getIterationCount() {
         return iterCount;
     }
