@@ -18,7 +18,7 @@ public class BruteForceSolver {
         return iterCount;
     }
     
-    /* Puzzle solver brute force: backtracking */
+    // Puzzle solver brute force: backtracking 
     
     // Method bantuan untuk memulai backtacking
     public void solve() {
@@ -68,5 +68,4 @@ public class BruteForceSolver {
         }
         return false;
     }
-
 }
