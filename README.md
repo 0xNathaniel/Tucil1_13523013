@@ -17,8 +17,8 @@ Program ini **membaca puzzle dari file input**, **mencari solusi menggunakan bru
 
 ## Struktur Project
 📁 project-root  
-|── 📁 bin 
-|── 📁 doc
+│── 📁 bin  
+│── 📁 doc      
 │── 📁 src  
 │    ├── Main.java  
 │    ├── Board.java  
