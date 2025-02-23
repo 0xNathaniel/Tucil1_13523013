@@ -5,7 +5,7 @@ public class BruteForceSolver {
     // Atribut Solver
     private Board board;
     private List<Piece> listOfPieces;
-    private int iterationCount = 0;
+    private int iterCount = 0;
 
     // Konstruktor Piece
     public BruteForceSolver(Board board, List<Piece> listOfPieces) {
@@ -15,7 +15,7 @@ public class BruteForceSolver {
 
     // Getter: iterationCount
     public int getIterationCount() {
-        return iterationCount;
+        return iterCount;
     }
     
     /* Puzzle solver brute force: backtracking */
@@ -27,7 +27,7 @@ public class BruteForceSolver {
 
     private boolean backtrack(int idx) {
         // Menambah hitungan iterasi
-        iterationCount++;
+        iterCount++;
 
         // Basis: seluruh Piece sudah ditempatkan pada Board
         if (idx == listOfPieces.size()) {
@@ -39,7 +39,11 @@ public class BruteForceSolver {
 
         // Brute force seluruh kemungkinan transformasi Piece dan posisi pada Board 
         Piece piece = listOfPieces.get(idx);
-        for (Piece transformedPiece : piece.getRotationsAndMirrors()) {;
+        List<Piece> transformedPieces = piece.getRotationsAndMirrors();
+
+        for (int i = 0; i < 8; i++) {
+            Piece transformedPiece = transformedPieces.get(i);
+
             for (int row = 0; row < board.getRows(); row++) {
                 for (int col = 0; col < board.getCols(); col++) {
                     // Pengecekan penempatan piece selaku aturan IQ Puzzler Pro
