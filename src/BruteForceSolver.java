@@ -32,8 +32,6 @@ public class BruteForceSolver {
         // Basis: seluruh Piece sudah ditempatkan pada Board
         if (idx == listOfPieces.size()) {
             if (board.isFull()) {
-                System.out.println("Solution Found:");
-                board.printBoard();
                 return true;
             }
             return false; 
