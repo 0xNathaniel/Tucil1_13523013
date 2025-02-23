@@ -40,12 +40,15 @@ public class Board {
         // Pengecekan
         for (int i = 0; i < pieceShape.length; i++) {
             for (int j = 0; j < pieceShape[i].length; j++) {
-                // Tidak keluar dari Board atau 
-                if ((row + i < 0) || (col + j < 0) || (row + i >= rows) || (col + j >= cols)) {
+                // Tidak menimpa piece lain
+                if (pieceShape[i][j] != '.') {
                     return false;
                 }
-                // Tidak menimpa piece lain
-                if ((pieceShape[i][j] != '.') && (grid[row + i][col + j] != '.')) {
+                if (grid[row + i][col + j] != '.') {
+                    return false;
+                }
+                // Tidak keluar dari Board atau 
+                if ((row + i < 0) || (col + j < 0) || (row + i >= rows) || (col + j >= cols)) {
                     return false;
                 }
             }
