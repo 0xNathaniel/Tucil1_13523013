@@ -42,14 +42,14 @@ public class Board {
             for (int j = 0; j < pieceShape[i].length; j++) {
                 // Tidak menimpa piece lain
                 if (pieceShape[i][j] != '.') {
-                    return false;
-                }
-                if (grid[row + i][col + j] != '.') {
-                    return false;
-                }
-                // Tidak keluar dari Board atau 
-                if ((row + i < 0) || (col + j < 0) || (row + i >= rows) || (col + j >= cols)) {
-                    return false;
+                    // Tidak keluar dari Board  
+                    if ((row + i < 0) || (col + j < 0) || (row + i >= rows) || (col + j >= cols)) {
+                        return false;
+                    }
+                    // Cek apakah sel Board sudah ditempatkan atau belum
+                    if (grid[row + i][col + j] != '.') {
+                        return false;
+                    }
                 }
             }
         }
@@ -102,7 +102,12 @@ public class Board {
 
     // Method untuk print Board ke terminal dengan warna
     public void printBoard() {
-        
+        for (char[] row : grid) {
+            for (char cell : row) {
+                System.out.print(cell + " ");
+            }
+            System.out.println();
+        }
     }
 
 }
