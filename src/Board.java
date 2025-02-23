@@ -102,12 +102,23 @@ public class Board {
 
     // Method untuk print Board ke terminal dengan warna
     public void printBoard() {
-        for (char[] row : grid) {
-            for (char cell : row) {
-                System.out.print(cell + " ");
+        String defaultColor  = "\033[0m";
+
+        // Print masing-masing huruf sesuai warnanya
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print(getColorCode(grid[i][j]) + grid[i][j] + defaultColor);
             }
             System.out.println();
         }
     }
 
+    // Fungsi untuk memilih warna
+    private String getColorCode(char letter) {
+        int[] colorCodes = {
+            31, 32, 33, 34, 35, 36, 91, 92, 93, 94, 95, 96, 101, 102, 103, 104, 105, 106, 107, 41, 42, 43, 44, 45, 46, 47
+        };
+        int idx = letter - 'A';
+        return "\033[" + colorCodes[idx] + "m";
+    }
 }
