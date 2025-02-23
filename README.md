@@ -1,4 +1,4 @@
-# Tugas Kecil 1 IF2211 Strategi Algoritma: Penyelesaian IQ Puzzler Pro Menggunakan Algoritma Brute Force  
+# **Tugas Kecil 1 IF2211 Strategi Algoritma**: Penyelesaian IQ Puzzler Pro Menggunakan Algoritma Brute Force  
 
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 
