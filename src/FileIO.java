@@ -133,7 +133,7 @@ public class FileIO {
     // Method untuk menyimpan solusi (state papan) pada sebuah file txt
     public static void saveSolutionToFile(String inputFilename) {
         if (board == null) {
-            System.out.println("Error: No board to save.");
+            System.out.println("Error: Tidak ada papan yang dapat disimpan");
             return;
         }
 
@@ -154,16 +154,17 @@ public class FileIO {
                 }
                 writer.newLine();
             }
-            System.out.println("Solution saved to: " + solutionFilename);
+            System.out.println("Solusi berhasil di simpan: " + solutionFilename);
+            System.out.println();
         } catch (IOException e) {
-            System.out.println("Error: Failed to save solution file.");
+            System.out.println("Error: Gagal menyimpan file solusi");
         }
     }
 
     // Method untuk menyimpan solusi (state papan) menjadi sebuah Image (.png)
     public static void saveSolutionAsImage(String inputFilename) {
         if (board == null) {
-            System.out.println("Error: No board to save.");
+            System.out.println("Error: Tidak ada papan yang dapat disimpan");
             return;
         }
     
@@ -222,9 +223,10 @@ public class FileIO {
         // Simpan Image
         try {
             ImageIO.write(image, "png", new File(solutionFilename));
-            System.out.println("Solution image saved to: " + solutionFilename);
+            System.out.println("Image solusi berhasil disimpan: " + solutionFilename);
+            System.out.println();
         } catch (IOException e) {
-            System.out.println("Error: Failed to save solution image.");
+            System.out.println("Error: Gagal menyimpan file solusi");
         }
     }
 }
